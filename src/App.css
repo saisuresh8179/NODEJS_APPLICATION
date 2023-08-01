@@ -106,3 +106,7 @@ padding-left: 15px;
 cursor: pointer;
 color:orange;
 }
+.list-container {
+  max-height: 300px; 
+  overflow: scroll; 
+}

@@ -95,6 +95,7 @@ function App() {
           </div>
         </div>
       </form>
+      <div className="list-container">
       <div class="list-group mt-4">
         {todos.map((todo) => (
           <div key={todo.id}>
@@ -126,6 +127,7 @@ function App() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
