@@ -8,7 +8,7 @@ function App() {
   const inputRef = useRef();
   const fetchdata = async () => {
     const result = await api.readTodos();
-    setTodos(result.data.data);
+    setTodos(result.data.data.sort((a,b)=>b.id-a.id));
     // console.log("feych data: ", result.data.data);
   };
   const addtodo = async (event) => {
@@ -95,7 +95,7 @@ function App() {
             />
           </div>
           <div>
-            {state?(<div><button onClick={() => updateTodos()}>Update Task</button><button onClick={()=>handlecancel()}>Cancel</button></div>):<button>Add Task</button>}
+            {state?(<div className="buttons"><button onClick={() => updateTodos()}>Update Task</button><button onClick={()=>handlecancel()}>Cancel</button></div>):<button>Add Task</button>}
           </div>
         </div>
       </form>

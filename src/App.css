@@ -110,3 +110,6 @@ color:orange;
   max-height: 300px; 
   overflow: scroll; 
 }
+.buttons{
+  padding-left: 20px;
+}
