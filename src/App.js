@@ -59,6 +59,10 @@ function App() {
     fetchdata();
    
   }
+  const handlecancel=()=>{
+    setState(false);
+    setTodo({title: "", Description: "", date:""});
+  }
   return (
     <div className="container todobox">
       <form ref={inputRef} onSubmit={addtodo}>
@@ -91,7 +95,7 @@ function App() {
             />
           </div>
           <div>
-            {state?<button onClick={() => updateTodos()}>Update Task</button>:<button>Add Task</button>}
+            {state?(<div><button onClick={() => updateTodos()}>Update Task</button><button onClick={()=>handlecancel()}>Cancel</button></div>):<button>Add Task</button>}
           </div>
         </div>
       </form>
@@ -122,7 +126,7 @@ function App() {
                   className={`fa-solid ${todo.attributes.complete ? 'fa-rectangle-xmark fa-xl' : 'fa-square-check fa-xl'}`}
                   onClick={() => onComplete(todo.id)}
                 ></i>
-                <i className="fa-solid fa-pen-to-square fa-xl" onClick={() => edittodo(todo)}></i>
+              {!todo.attributes.complete&&<i className="fa-solid fa-pen-to-square fa-xl" onClick={() => edittodo(todo)}></i>}
               </div>
             </div>
           </div>
