@@ -9,8 +9,6 @@ pipeline {
         stage ('create docker image') {
             steps {
                 sh '''
-                docker stop nodejs_con && docker rm nodejs_con
-                docker image rm saisuresh1/nodejs:v1
                 docker build -t nodejs . '''
             }
         }
