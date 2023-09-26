@@ -39,11 +39,6 @@ pipeline {
         }
          stage ('tar the strapitodo directory ') {
             steps {
-                sh ''' '''
-            }
-        }
-         stage ('tar the strapitodo directory ') {
-            steps {
                 sh ''' tar -czf /var/lib/jenkins/strapitodo-v1.tar.gz /var/lib/jenkins/workspace/pipeline'''
             }
         }
