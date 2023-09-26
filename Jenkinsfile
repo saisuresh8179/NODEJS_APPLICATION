@@ -8,7 +8,10 @@ pipeline {
         }
         stage ('create docker image') {
             steps {
-                sh ''' docker build -t nodejs . '''
+                sh '''
+                docker stop nodjs_con && docker rm nodejs_con
+                docker image rm nodejs saisuresh1/nodejs:v1
+                docker build -t nodejs . '''
             }
         }
         stage ('create docker hub repo tag for image') {
@@ -25,7 +28,7 @@ pipeline {
         stage ('push to docker hub') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', url: 'dockerhub') {
+                    withDockerRegistry(credentialsId: 'docker-cred') {
                         sh ''' docker push saisuresh1/nodejs:v1 '''
                     }
                 }
