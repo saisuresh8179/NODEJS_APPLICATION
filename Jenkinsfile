@@ -47,11 +47,5 @@ pipeline {
                 sh ''' tar -czf /var/lib/jenkins/strapitodo-v1.tar.gz /var/lib/jenkins/workspace/pipeline'''
             }
         }
-      stage ('upload the tar file to nexus')
-        {
-            steps {
-                sh ''' curl -v -u admin:admin  --upload-file /var/lib/jenkins/strapitodo-v1.tar.gz http://172.31.13.106:8081/nexus/content/repositories/nodejs/'''
-            }
-        }
     }
 }
